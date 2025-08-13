@@ -1,5 +1,6 @@
 // app/kontak/page.tsx
 import Image from "next/image";
+import {DefaultHero} from "@/components/default-hero";
 
 export const metadata = {
     title: "Kontak | PT. Alkes Medika",
@@ -8,32 +9,13 @@ export const metadata = {
 
 export default function ContactPage() {
     return (
-        <div className="bg-white">
-            {/* Hero */}
-            {/* Hero */}
-            <section className="relative isolate mb-10">
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <div className="relative overflow-hidden rounded-3xl shadow-xl ring-1 ring-black/10">
-                        <Image
-                            src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1920&auto=format&fit=crop"
-                            alt="Ruang operasi"
-                            fill
-                            className="object-cover"
-                            priority
-                        />
-                        <div className="absolute inset-0 bg-slate-900/65" />
-                        <div className="relative px-6 py-10 lg:px-12 lg:py-16 text-white">
-                            <p className="text-sm uppercase tracking-widest text-sky-300">Hubungi Kami</p>
-                            <h1 className="mt-2 text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
-                                Konsultasi Cepat & Penawaran Resmi
-                            </h1>
-                            <p className="mt-4 max-w-3xl text-sky-100 sm:text-lg">
-                                Tim kami siap membantu kebutuhan penyewaan, servis, kalibrasi, dan instalasi alat kesehatan.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+        <div className="bg-white mb-10">
+
+            <DefaultHero
+                imageUrl="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1920&auto=format&fit=crop"
+                title="Konsultasi Cepat & Penawaran Resmi"
+                subtitle="Hubungi Kami"
+                description="Tim kami siap membantu kebutuhan penyewaan, servis, kalibrasi, dan instalasi alat kesehatan."/>
 
             {/* Cards: info kontak */}
             <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-4">
