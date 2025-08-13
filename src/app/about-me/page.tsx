@@ -1,5 +1,6 @@
 // app/tentang/page.tsx
 import Image from "next/image";
+import {DefaultHero} from "@/components/default-hero";
 
 export const metadata = {
     title: "Tentang Kami | PT. Alkes Medika",
@@ -11,31 +12,12 @@ export default function AboutPage() {
     return (
         <div className="bg-white mb-10">
             {/* Hero / Intro */}
-            <section className="relative isolate overflow-hidden">
-                <div className="absolute inset-0 -z-10">
-                    <Image
-                        src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1920&auto=format&fit=crop"
-                        alt="Background alat kesehatan"
-                        fill
-                        className="object-cover"
-                        priority
-                    />
-                    <div className="absolute inset-0 bg-slate-900/60" />
-                </div>
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20 text-white">
-                    <p className="text-sm uppercase tracking-widest text-sky-300">
-                        Tentang Kami
-                    </p>
-                    <h1 className="mt-2 text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
-                        Partner Tepercaya Penyedia & Layanan Alat Kesehatan
-                    </h1>
-                    <p className="mt-4 max-w-3xl text-slate-200 sm:text-lg">
-                        Kami membantu RS & klinik menghadirkan operasional yang aman dan
-                        efisien melalui penyewaan, servis, instalasi, dan dukungan teknis
-                        24/7.
-                    </p>
-                </div>
-            </section>
+
+            <DefaultHero
+                imageUrl="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1920&auto=format&fit=crop"
+                title="Partner Tepercaya Penyedia & Layanan Alat Kesehatan"
+                subtitle="Tentang Kami"
+                description=" Kami membantu RS & klinik menghadirkan operasional yang aman dan efisien melalui penyewaan, servis, instalasi, dan dukungan teknis 24/7."/>
 
             {/* Company summary */}
             <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
