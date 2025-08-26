@@ -1,4 +1,8 @@
 // Types
+import {DATA_PRODUCTS} from "@/dummy/data-products";
+import {ProductCard} from "@/components/product-card";
+import Link from "next/link";
+
 export type Product = {
     id: string | number;
     name: string;
@@ -75,62 +79,36 @@ export function PopularProducts({ products }: { products?: Product[] }) {
                 <div className="flex items-end justify-between gap-4">
                     <div>
                         <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">Produk Populer</h2>
-                        <p className="mt-2 text-slate-600 sm:text-lg">Pilihan paling dicari oleh rumah sakit & klinik.</p>
+                        <p className="mt-2 text-slate-600 sm:text-lg">Pilihan paling dicari oleh rumah sakit &
+                            klinik.</p>
                     </div>
-                    <a
-                        href="#/produk"
+                    <Link
+                        href="/products"
                         className="hidden sm:inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-sky-500"
                     >
                         Lihat Semua
-                        <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden><path fill="currentColor" d="M13.5 4.5a.75.75 0 0 1 .75-.75h5.25a.75.75 0 0 1 .75.75v5.25a.75.75 0 0 1-1.5 0V6.31l-8.47 8.47a.75.75 0 0 1-1.06-1.06l8.47-8.47h-3.44a.75.75 0 0 1-.75-.75Z"/></svg>
-                    </a>
+                        <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden>
+                            <path fill="currentColor"
+                                  d="M13.5 4.5a.75.75 0 0 1 .75-.75h5.25a.75.75 0 0 1 .75.75v5.25a.75.75 0 0 1-1.5 0V6.31l-8.47 8.47a.75.75 0 0 1-1.06-1.06l8.47-8.47h-3.44a.75.75 0 0 1-.75-.75Z"/>
+                        </svg>
+                    </Link>
                 </div>
 
                 {/* Grid */}
-                <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                    {data.map((p) => (
-                        <article key={p.id} className="group relative overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200 shadow-sm transition hover:shadow-md">
-                            <div className="relative aspect-[4/3] w-full overflow-hidden">
-                                {/* Note: swap to next/image in your project file context */}
-                                <img
-                                    src={p.imageUrl}
-                                    alt={p.name}
-                                    className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
-                                    loading="lazy"
-                                />
-                                <span className="absolute left-3 top-3 rounded-full bg-sky-600/90 px-2.5 py-1 text-xs font-semibold text-white">Populer</span>
-                            </div>
-                            <div className="p-4">
-                                <p className="text-xs uppercase tracking-wide text-slate-500">{p.category ?? "Kategori"}</p>
-                                <h3 className="mt-1 line-clamp-2 text-base font-semibold text-slate-900">{p.name}</h3>
-                                {p.price && <p className="mt-1 text-sm text-slate-700">{p.price}</p>}
-                                <div className="mt-4 flex items-center gap-2">
-                                    <a
-                                        href={p.slug ? `/produk/${p.slug}` : `#/produk/${p.id}`}
-                                        className="inline-flex items-center gap-1 rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 transition hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
-                                    >
-                                        Detail
-                                    </a>
-                                    <a
-                                        href="#hubungi-kami"
-                                        className="inline-flex items-center gap-1 rounded-xl bg-sky-600 px-3 py-1.5 text-sm font-medium text-white shadow-sm transition hover:bg-sky-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
-                                    >
-                                        Tambah ke Penawaran
-                                    </a>
-                                </div>
-                            </div>
-                        </article>
+                <section className="mx-auto mt-6 grid max-w-7xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    {DATA_PRODUCTS.map((product) => (
+                        <ProductCard key={product.id} product={product} showCertificate={true} showDescription={true} showSpecs={true}/>
                     ))}
-                </div>
+                </section>
 
                 {/* Mobile "Lihat Semua" */}
                 <div className="mt-8 text-center sm:hidden">
-                    <a
-                        href="#/produk"
+                    <Link
+                        href="/products"
                         className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-sky-500"
                     >
                         Lihat Semua
-                    </a>
+                    </Link>
                 </div>
             </div>
         </section>

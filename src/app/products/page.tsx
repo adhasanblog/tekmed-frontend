@@ -1,5 +1,7 @@
 // app/produk/page.tsx
 import Image from "next/image";
+import {ProductCard} from "@/components/product-card";
+import {DATA_PRODUCTS} from "@/dummy/data-products";
 
 type Product = {
     id: number | string;
@@ -81,6 +83,8 @@ export const metadata = {
 };
 
 export default function CatalogPage() {
+    const handleAdd = (p: Product) => alert(`Tambah ke keranjang: ${p.name}`);
+    const handleQuick = (p: Product) => alert(`Quick view: ${p.name}`);
     return (
         <div className="grid gap-8 lg:grid-cols-12 mb-10">
             {/* Sidebar Kategori */}
@@ -163,9 +167,12 @@ export default function CatalogPage() {
 
 
                 {/* Grid kartu futuristik */}
-                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 items-stretch">
-                    {DUMMY_PRODUCTS.map((p) => (<ProductCard key={p.id} product={p}/>))}
-                </div>
+
+                <section className="mx-auto mt-6 grid max-w-7xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    {DATA_PRODUCTS.map((product) => (
+                        <ProductCard key={product.id} product={product}/>
+                    ))}
+                </section>
 
                 {/* Pagination dummy */}
                 <div className="mt-8 flex items-center justify-center gap-2">
@@ -190,7 +197,7 @@ export default function CatalogPage() {
 }
 
 /** Kartu produk bergaya futuristik (glass + gradient glow) */
-function ProductCard({product: p}: { product: Product }) {
+function ProductCard1({product: p}: { product: Product }) {
     return (
         <article
             className="

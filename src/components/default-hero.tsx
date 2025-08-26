@@ -2,18 +2,19 @@ import Image from "next/image";
 
 interface HeroProps {
   imageUrl: string;
+  imageAlt?: string;
   title: string;
   subtitle: string;
   description: string;
 }
 
-export const DefaultHero = ({imageUrl, title, subtitle, description}:HeroProps) => {
+export const DefaultHero = ({imageUrl, imageAlt, title, subtitle, description}:HeroProps) => {
   return (
     <section className="relative isolate overflow-hidden rounded rounded-lg">
       <div className="absolute inset-0 -z-10">
         <Image
           src={imageUrl}
-          alt="Background alat kesehatan"
+          alt={imageAlt || ""}
           fill
           className="object-cover"
           priority
